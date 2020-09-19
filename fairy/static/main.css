@@ -1,0 +1,23 @@
+body {
+    box-sizing: border-box;
+}
+
+.box {
+    height: 200px;
+    border: 2px solid cadetblue;
+    border-radius: 5px;
+}
+
+.select {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.notselect {
+    display: none;
+}
+
+.pick {
+    background-color: gainsboro;
+}

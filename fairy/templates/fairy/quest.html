@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row d-flex justify-content-center">
+    <div class="col-6">
+        <div class="box d-flex align-items-center">
+            <div class="select">
+                <button class='btn ch btn-outline-info' value='1'>Choice A</button>
+                <button class='btn ch btn-outline-danger' value='2'>Choice B</button>
+            </div>
+            <div class="notselect">
+                <button class='btn ch btn-outline-info' value='1'>Choice C</button>
+                <button class='btn ch btn-outline-danger' value='2'>Choice D</button>
+            </div>
+            <div class="notselect">
+                <button class='btn ch btn-outline-info' value='1'>Choice E</button>
+                <button class='btn ch btn-outline-danger' value='2'>Choice F</button>
+            </div>
+            <div class="notselect">
+                <button class='btn ch btn-outline-info' value='1'>Choice G</button>
+                <button class='btn ch btn-outline-danger' value='2'>Choice H</button>
+            </div>
+            <div class="notselect">
+                <button class='btn ch btn-outline-info' value='1'>Choice I</button>
+                <button class='btn ch btn-outline-danger' value='2'>Choice J</button>
+            </div>
+            <div class="notselect">
+                <button class='btn ch btn-outline-info' value='1'>Choice K</button>
+                <button class='btn ch btn-outline-danger' value='2'>Choice L</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p></p>
+
+
+
+<script>
+    jQuery.noConflict();
+    jQuery(document).ready(function($){
+
+        var arr = '';
+        var ans = 0;
+        $('.btn').click(function(){
+            if (ans < 6) {
+                $(this).addClass('pick');
+                arr += $(this).val();
+                $('p').html(arr + ', ' + ans);
+                ans++;
+
+                $(this).parent().removeClass('select').addClass('notselect');
+                $(this).parent().next().removeClass('notselect').addClass('select');
+
+                // $(this).parent().hide();
+                // $(this).parent().next().show();
+                
+            }
+        });
+    });
+</script>
+
+{% endblock %}
