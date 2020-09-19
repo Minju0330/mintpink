@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'MaplestoryOTFBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     box-sizing: border-box;
 }
@@ -20,4 +27,14 @@ body {
 
 .pick {
     background-color: gainsboro;
+}
+.h1 {
+    font-family: 'MaplestoryOTFBold';
+    font-style: normal; 
+    font-weight: normal;
+}
+            
+.select_box{
+    margin:50px;
+    padding-left:10%;
 }

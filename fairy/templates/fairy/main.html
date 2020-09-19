@@ -1,6 +1,23 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-
-{% endblock %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <style>
+            body{
+                width: 1000px;
+                height: 100px;
+                background-image:url("{% static 'images/fairytale.jpg' %}");
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-size: 1420px 700%;
+                }
+        </style>
+    </head>
+</html>
+<body>
+    <div class="select_box">
+        <div class="btn" style="position: relative; top: 0px; left: 1000;">
+            <button type="button" style="color: black; background: greenyellow; font-size:2em; border-radius:0.3em; padding:5px 20px;" onclick="location.href='quest'">Start!</button>
+        </div>
+    </div>
+</body>

@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+
+<head>
+    <style>
+        body{
+            width: 1000px;
+            height: 100px;
+            background-image:url("{% static 'images/fairytale2.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: 1420px 520%;
+            }
+    </style>
+</head>
 
 <div class="row d-flex justify-content-center">
     <div class="col-6">
         <div class="box d-flex align-items-center">
+            <a href="{% url 'main' %}" class="xxl_title h_font b_text">home</a>
             <div class="select">
                 <button class='btn ch btn-outline-info' value='1'>Choice A</button>
                 <button class='btn ch btn-outline-danger' value='2'>Choice B</button>
