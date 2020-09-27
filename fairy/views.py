@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Fairy
 
+
 # Create your views here.
 
 def main(request):
