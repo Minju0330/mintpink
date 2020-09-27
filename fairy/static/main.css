@@ -2,22 +2,78 @@ body {
     box-sizing: border-box;
 }
 
-.box {
-    height: 200px;
-    border: 2px solid cadetblue;
-    border-radius: 5px;
+.container {
+    flex: 1;
+    position: relative;
+    /* background-image: url('배경.jpg'); */
+    /* background-size: contain; */
 }
 
-.select {
+.container:after {
+    content: '';
+    background-image: url('배경.jpg');
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.container > *{
+    z-index: 100;
+}
+
+.box, .pick, .row, .qst, .ans, .qst-img, .qst-box {
+    /* border: 0.5px solid lightgrey;
+    border-radius: 5px; */
+}
+
+.row, .select, .qst{
+    justify-content: space-evenly;
+}
+
+.select, .ch, .result-box{
+    white-space: pre-line;
+    word-break: keep-all;
+}
+
+.select, .notselect{
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    align-items: center;
+    height: 25%;
 }
 
 .notselect {
     display: none;
 }
 
-.pick {
-    background-color: gainsboro;
+.row {
+    height: 100%;
+}
+
+.qst-num {
+    font-size: 3vh;
+    margin-bottom: 1.5vh;
+}
+
+.question > p {
+    margin-bottom: 0.5rem;
+}
+
+.ch, .result {
+    width: 25%;
+    height: 50%;
+}
+
+.rform {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

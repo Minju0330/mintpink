@@ -1,63 +1,97 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<div class="row d-flex justify-content-center">
-    <div class="col-6">
-        <div class="box d-flex align-items-center">
-            <div class="select">
-                <button class='btn ch btn-outline-info' value='1'>Choice A</button>
-                <button class='btn ch btn-outline-danger' value='2'>Choice B</button>
-            </div>
-            <div class="notselect">
-                <button class='btn ch btn-outline-info' value='1'>Choice C</button>
-                <button class='btn ch btn-outline-danger' value='2'>Choice D</button>
-            </div>
-            <div class="notselect">
-                <button class='btn ch btn-outline-info' value='1'>Choice E</button>
-                <button class='btn ch btn-outline-danger' value='2'>Choice F</button>
-            </div>
-            <div class="notselect">
-                <button class='btn ch btn-outline-info' value='1'>Choice G</button>
-                <button class='btn ch btn-outline-danger' value='2'>Choice H</button>
-            </div>
-            <div class="notselect">
-                <button class='btn ch btn-outline-info' value='1'>Choice I</button>
-                <button class='btn ch btn-outline-danger' value='2'>Choice J</button>
-            </div>
-            <div class="notselect">
-                <button class='btn ch btn-outline-info' value='1'>Choice K</button>
-                <button class='btn ch btn-outline-danger' value='2'>Choice L</button>
-            </div>
-        </div>
+<div class="row flex-column">
+  <div class="qst d-flex h-50">
+    <div class="w-25">
+      <img src="{% static '춘향전.jpg' %}" class="w-100" alt="춘향전">
     </div>
+    <div class="w-50">
+      <p class="qst-num">
+        Question 1.
+      </p>
+      <div class="question">
+        <p>당신은 춘향 양을 못살게 구는 변 사또의 관청에서 근무하는 포졸이다. 퇴근하려고 하는데 오늘도 사또 놈이 춘향 양에게 편지를 갖다 주라면서 없던 외근을 만들어서 시켰다.</p>
+        <p>"아오 저 뺀질이 자식. 낙하산 주제에 하라는 근무는 안하고 착한 여자 뒤꽁무니나 쫓아다니냐. 누가 헬조선 아니랄까봐."</p>
+        <p>대충 전달하고 얼른 집 가서 &lt킹덤&gt이나 봐야겠다. 겨우 집 거의 다 와가는데 갑자기 관청 동료한테서 연락이 왔다.</p>
+        <p>"야 내일 비번이지? 주막에서 치킨에 한잔 땡기자"<br>
+        '아 막걸리도 땡기네. 근데 오늘 정주행하려고 했는데 어떡하지?'</p>
+        당신의 선택은?
+      </div>
+    </div>
+  </div>
+  <div class="select">
+    <button class='btn ch btn-outline-info' value='1'>콜! 오늘은 달려야지.</button>
+    <button class='btn ch btn-outline-danger' value='2'>응 아니야~ 치킨은 넷플릭스랑 뜯어야지.</button>
+  </div>
+  <div class="notselect">
+    <button class='btn ch btn-outline-info' value='1'>Answer 1</button>
+    <button class='btn ch btn-outline-danger' value='2'>Answer 2</button>
+  </div>
+  <div class="notselect">
+    <button class='btn ch btn-outline-info' value='1'>Answer 1</button>
+    <button class='btn ch btn-outline-danger' value='2'>Answer 2</button>
+  </div>
+  <div class="notselect">
+    <button class='btn ch btn-outline-info' value='1'>Answer 1</button>
+    <button class='btn ch btn-outline-danger' value='2'>Answer 2</button>
+  </div>
+  <div class="notselect">
+    <button class='btn ch btn-outline-info' value='1'>Answer 1</button>
+    <button class='btn ch btn-outline-danger' value='2'>Answer 2</button>
+  </div>
+  <div class="notselect">
+    <button class='btn ch btn-outline-info' value='1'>Answer 1</button>
+    <button class='btn ch btn-outline-danger' value='2'>Answer 2</button>
+  </div>
+  <div class="notselect">
+    <form action="{% url 'result' %}" method="POST" class='rform'>
+      {% csrf_token %}
+      <input type="submit" class="result btn btn-outline-info" value="결과보기">
+    </form>
+  </div>
 </div>
-<p></p>
 
+<script type="text/javascript">
+  jQuery.noConflict();
+  jQuery(document).ready(function ($) {
 
+    var arr = '';
+    var ans = 0;
+    $('.ch').click(function () {
+      if (ans < 6) {
+        arr += $(this).val();
+        ans++;
 
-<script>
-    jQuery.noConflict();
-    jQuery(document).ready(function($){
-
-        var arr = '';
-        var ans = 0;
-        $('.btn').click(function(){
-            if (ans < 6) {
-                $(this).addClass('pick');
-                arr += $(this).val();
-                $('p').html(arr + ', ' + ans);
-                ans++;
-
-                $(this).parent().removeClass('select').addClass('notselect');
-                $(this).parent().next().removeClass('notselect').addClass('select');
-
-                // $(this).parent().hide();
-                // $(this).parent().next().show();
-                
-            }
-        });
+        $(this).parent().removeClass('select').addClass('notselect');
+        $(this).parent().next().removeClass('notselect').addClass('select');
+      }
     });
+
+    $('.result').click(function () {
+      event.preventDefault()
+
+      function post(params) {
+        var form = $('form');
+
+        $.each(params, function (key, value) {
+          var field = $('<input>');
+
+          field.attr("type", "hidden");
+          field.attr("name", key);
+          field.attr("value", value);
+
+          form.append(field);
+        });
+
+        form.submit();
+      }
+
+      post({ arr: arr });
+    });
+  });
 </script>
 
 {% endblock %}

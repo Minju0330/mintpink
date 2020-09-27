@@ -1,14 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/django,visualstudiocode,database,venv,windows,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=django,visualstudiocode,database,venv,windows,macos
-
-### Database ###
-*.accdb
-*.db
-*.dbf
-*.mdb
-*.pdb
-*.sqlite3
+# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,venv,django,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,venv,django,visualstudiocode
 
 ### Django ###
 *.log
@@ -232,4 +224,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/django,visualstudiocode,database,venv,windows,macos
+# End of https://www.toptal.com/developers/gitignore/api/windows,macos,venv,django,visualstudiocode

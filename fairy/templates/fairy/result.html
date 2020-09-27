@@ -1,6 +1,20 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-
+<div class="row flex-column">
+  <div class="qst d-flex h-50">
+    <div class="qst-img w-25">
+      <img src="{% static '춘향전.jpg' %}" class="w-100" alt="춘향전">
+    </div>
+    <div class="result-box w-50">
+      <p><h4 class='text-center'>{{ fairy.character }}</h4></p>
+      <p>{{ fairy.explain }}</p>
+    </div>
+  </div>
+  <div class="select">
+    <a href="{% url 'quest' %}" class="btn btn-outline-info">다시 해 볼래?</a>
+  </div>
+</div>
 {% endblock %}

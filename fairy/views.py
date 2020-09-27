@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Fairy
 
 # Create your views here.
 
@@ -11,4 +12,9 @@ def quest(request):
 
 
 def result(request):
-    return render(request, 'fairy/result.html')
+    arr = request.POST.get('arr')
+    fairy = Fairy.objects.get(code=arr)
+    context = {
+        'fairy': fairy,
+    }
+    return render(request, 'fairy/result.html', context)
