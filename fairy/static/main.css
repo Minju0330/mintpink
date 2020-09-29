@@ -9,6 +9,17 @@ body {
     box-sizing: border-box;
 }
 
+
+.start_button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    vertical-align: center;
+    height: 25%;
+    justify-content: center;
+    font:40px 'MaplestoryOTFBold';
+}
+
 .container {
     flex: 1;
     position: relative;
@@ -18,7 +29,7 @@ body {
 
 .container:after {
     content: '';
-    background-image: url('배경.jpg');
+    background-image: url('배경2.jpg');
     background-size: cover;
     position: absolute;
     top: 0;
@@ -83,4 +94,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.btn-outline-danger {
+    background-color: #dc35;
+    color : #dc3545;
+    border-color : #dc3545;
+}
+
+.btn-outline-info {
+    background: #17a2;
+    color : #17a2b8;
+    border-color : #17a2b8;
 }
