@@ -18,7 +18,7 @@ body {
 
 .container:after {
     content: '';
-    background-image: url('배경2.jpg');
+    /* background-image: url('배경2.jpg'); */
     background-size: cover;
     position: absolute;
     top: 0;
@@ -43,7 +43,7 @@ body {
     justify-content: space-evenly;
 }
 
-.select, .ch, .result-box{
+.select, .ch1, .ch2, .result-box{
     white-space: pre-line;
     word-break: keep-all;
 }
@@ -61,6 +61,7 @@ body {
 
 .row {
     height: 100%;
+    width: 100%;
 }
 
 .qst-num {
@@ -72,7 +73,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.ch, .result {
+.ch, .ch1, .ch2, .result {
     width: 25%;
     height: 50%;
 }
