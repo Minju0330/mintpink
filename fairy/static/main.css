@@ -29,7 +29,7 @@ body {
 
 .container:after {
     content: '';
-    background-image: url('배경2.jpg');
+    background-image: url('fairytale_fadeout.jpg');
     background-size: cover;
     position: absolute;
     top: 0;
@@ -39,6 +39,7 @@ body {
     background-color: white;
     opacity: 0.3;
     z-index: 1;
+    box-shadow: 0 0 0 6px rgb(255, 254, 254), 0 0 0 15px rgb(255, 254, 254); 
 }
 
 .container > *{
