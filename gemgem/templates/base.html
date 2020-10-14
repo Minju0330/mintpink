@@ -20,6 +20,69 @@
     {% endblock %}
     </div>
 
+    {% block js %}
+    
+    {% endblock %}
+
+    <script type="text/javascript">
+      jQuery.noConflict();
+      jQuery(document).ready(function ($) {
+
+        let arr = '';
+        let ans = 1;
+        $('.ch1, .ch2').click(function () {
+          arr += $(this).val();
+          console.log(arr)
+          if (ans < 6) {
+            ans++;
+
+            $.ajax({
+              type: 'POST',
+              url: '{% url "quest_data" %}',
+              data: {
+                num: ans,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+              },
+              dataType: "json",
+              success: function (response) {
+                $('.qst-num').html('Question ' + response.pk);
+                $('.question').html(response.content);
+                $('.ch1').html(response.answer1);
+                $('.ch2').html(response.answer2);
+              },
+            });
+          } else {
+            $(this).parent().removeClass('select').addClass('notselect');
+            $(this).parent().next().removeClass('notselect').addClass('select');
+          }
+        });
+
+        $('.result').click(function () {
+          event.preventDefault()
+
+          function post(params) {
+            var form = $('form');
+
+            $.each(params, function (key, value) {
+              var field = $('<input>');
+
+              field.attr("type", "hidden");
+              field.attr("name", key);
+              field.attr("value", value);
+
+              form.append(field);
+            });
+
+            form.submit();
+          }
+
+          post({
+            arr: arr
+          });
+        });
+      });
+    </script>
+
     <div class="bg-dark"><h6 class="text-center text-white my-2">Copyright 2020. Fairy Team. All rights reserved.</h6></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
